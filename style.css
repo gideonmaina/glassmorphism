@@ -1,0 +1,52 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: rgb(44, 3, 90)
+}
+
+.glassmorphic-wrapper {
+    width: 100%;
+    height: 100vh;
+    background: url("./images/mike-von-unsplash.jpg") center/cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: hue-rotate 20s infinite alternate;
+
+}
+
+.glassmorphic-wrapper::after {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+    background: inherit;
+    filter: blur(2rem);
+    z-index: -1;
+    transform: scale(1.12);
+
+}
+
+@keyframes hue-rotate {
+    from {
+        filter: hue-rotate(0)
+    }
+
+    to {
+        filter: hue-rotate(360deg)
+    }
+}
